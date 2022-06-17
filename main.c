@@ -1,20 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <stdbool.h>
 
 void check_if_balanced(int circle_brackets, int squiggly_brackets, int square_brackets)
 {
     int values[3] = { circle_brackets, squiggly_brackets, square_brackets };
-    int is_balanced = 1;
+    bool is_balanced = true;
 
     for (int i = 0; i < 3; i++) {
         if (values[i] != 0) {
-            is_balanced = 0;
+            is_balanced = false;
         }
     }
 
     // TODO: Make this look better
-    printf("Is Balanced: %d \n", is_balanced);
+    if(is_balanced == false) {
+        printf("The parenthesis are not balanced \n");
+        return;
+    }
+
+    printf("The parenthesis are balanced \n");
 }
 
 int main(int argc, char **argv)
@@ -69,10 +75,6 @@ int main(int argc, char **argv)
 
         }
     }
-
-    //printf("() : %d \n", circle_brackets);
-    //printf("{} : %d \n", squiggly_brackets);
-    //printf("[] : %d \n", square_brackets);
 
     check_if_balanced(circle_brackets, squiggly_brackets, square_brackets);
     
