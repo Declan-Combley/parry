@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <stdbool.h>
+#include <string.h>
 
 void check_if_balanced(int circle_brackets, int squiggly_brackets, int square_brackets)
 {
@@ -38,10 +39,10 @@ int main(int argc, char **argv)
         
     char *input = *argv++;
 
-    int size = input[0] / sizeof(input);
+    size_t length = strlen(input);
 
-    if (size <= 2) {
-        fprintf(stderr, "ERROR: %d is invalid input must be greater than 2 \n", size);
+    if (length <= 2) {
+        fprintf(stderr, "ERROR: %ld is invalid input must be greater than 2 \n", length);
         exit(1);
     }
 
@@ -49,7 +50,7 @@ int main(int argc, char **argv)
     int squiggly_brackets = 0;
     int square_brackets = 0;
     
-    for (int i = 0; i <= size; i++) {
+    for (size_t i = 0; i <= length; i++) {
         switch (input[i])
         {
             case '(': circle_brackets++;
