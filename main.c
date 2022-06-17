@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 
     size_t length = strlen(input);
 
-    if (length <= 2) {
+    if (length < 2) {
         fprintf(stderr, "ERROR: %ld is invalid input must be greater than 2 \n", length);
         exit(1);
     }
